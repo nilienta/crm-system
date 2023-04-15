@@ -1,0 +1,54 @@
+.card-contact {
+  padding: 20px;
+
+  &__tr {
+    height: 78px;
+    background: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  &__tr:hover {
+    background-color: rgba(237, 188, 74, 0.2);
+  }
+  // TODO Проверить
+  // text-overflow: ellipsis;
+  //  white-space: nowrap;
+  &__td {
+    padding: 0px 0.5em;
+    border: 2px rgb(19, 0, 128) solid;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__action {
+    display: block;
+    margin: auto;
+  }
+}
+
+.custom-table {
+  &__btn {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.3em;
+  }
+
+  &__action-btn {
+    cursor: pointer;
+    border: 1px solid #eee;
+    background: none;
+
+    svg {
+      pointer-events: none;
+      padding: 5px;
+      width: 1.7em;
+      height: 1.7em;
+    }
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: center;
+  }
+}

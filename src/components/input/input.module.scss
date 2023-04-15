@@ -1,0 +1,42 @@
+.input {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.8em;
+  transition: 0.3s;
+  cursor: text;
+
+  font-family: 'Roboto Condensed', Arial, sans-serif;
+  font-style: normal;
+}
+.input__label {
+  cursor: text;
+  text-align: left;
+  transition: 0.3s;
+
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+.input__textfield {
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+  cursor: text;
+  border: none;
+  outline: 1px solid rgba(0, 0, 0, 0.7);
+  border-image-slice: 1;
+  padding: 1em;
+
+  font-family: inherit;
+  font-style: inherit;
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+}
+
+.input__textfield:focus {
+  border: none;
+  outline: 2px solid #000000;
+}

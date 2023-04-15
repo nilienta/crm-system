@@ -1,0 +1,15 @@
+@import '../../assets/fonts/fonts.css';
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+@media (max-width: 768px) {
+  html {
+    font-size: 8px;
+  }
+}

@@ -1,0 +1,63 @@
+.pagination {
+  justify-content: center;
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+
+  &__item {
+    font-weight: 700;
+    color: #000000;
+
+    &:not(:first-child):not(:last-child) a:hover {
+      background-color: #cccccc;
+    }
+    &--active a {
+      color: #ffffff;
+      background-color: rgba(237, 188, 74, 1);
+    }
+
+    &--disabled {
+      color: #6c757d;
+      pointer-events: none;
+      cursor: auto;
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: block;
+    margin: 0 0.1em;
+    min-height: 30px;
+    min-width: 30px;
+    border-radius: 20px;
+
+    text-align: center;
+    text-decoration: none;
+
+    font-family: 'Titillium Web', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+
+    color: inherit;
+  }
+
+  &__nav {
+    width: 34px;
+    height: 30px;
+    background: url(../../assets/img/arrow.svg) no-repeat;
+    background-position: center center;
+    background-size: 9px;
+    transition: all 0.3s ease-out;
+    position: relative;
+
+    &:hover {
+      background-size: 12px;
+    }
+
+    &--next {
+      transform: rotate(180deg);
+    }
+  }
+}

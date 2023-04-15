@@ -1,6 +1,72 @@
+/* Poppins 400*/
 @font-face {
-  font-family: 'OpenSans';
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  src: url('poppins-v5-latin-regular.eot');
+  src: local('Poppins Regular'), local('Poppins-Regular'),
+    url('poppins-v5-latin-regular.eot?#iefix') format('embedded-opentype'),
+    url('poppins-v5-latin-regular.woff2') format('woff2'),
+    url('poppins-v5-latin-regular.woff') format('woff'),
+    url('poppins-v5-latin-regular.ttf') format('truetype');
+}
+/* Poppins 500*/
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  src: url('poppins-v5-latin-500.eot');
+  src: local('Poppins Medium'), local('Poppins-Medium'),
+    url('poppins-v5-latin-500.eot?#iefix') format('embedded-opentype'),
+    url('poppins-v5-latin-500.woff2') format('woff2'),
+    url('poppins-v5-latin-500.woff') format('woff'),
+    url('poppins-v5-latin-500.ttf') format('truetype');
+}
+/* Poppins 700*/
+@font-face {
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: 700;
-  src: url('../assets/fonts/OpenSans-Bold.woff') format('woff');
+  src: url('poppins-v5-latin-700.eot');
+  src: local('Poppins Bold'), local('Poppins-Bold'),
+    url('poppins-v5-latin-700.eot?#iefix') format('embedded-opentype'),
+    url('poppins-v5-latin-700.woff2') format('woff2'),
+    url('poppins-v5-latin-700.woff') format('woff'),
+    url('poppins-v5-latin-700.ttf') format('truetype');
+}
+
+/* RobotoCondensed 400*/
+@font-face {
+  font-family: 'RobotoCondensed';
+  src: url('RobotoCondensed-Regular.eot');
+  src: local('RobotoCondensed Regular'), local('RobotoCondensed-Regular'),
+    url('RobotoCondensed-Regular.eot?#iefix') format('embedded-opentype'),
+    url('RobotoCondensed-Regular.woff') format('woff'),
+    url('RobotoCondensed-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+/* RobotoCondensed 700*/
+@font-face {
+  font-family: 'RobotoCondensed';
+  src: url('RobotoCondensed-Bold.eot');
+  src: local('RobotoCondensed Bold'), local('RobotoCondensed-Bold'),
+    url('RobotoCondensed-Bold.eot?#iefix') format('embedded-opentype'),
+    url('RobotoCondensed-Bold.woff') format('woff'),
+    url('RobotoCondensed-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Titillium Web 400*/
+@font-face {
+  font-family: 'Titillium Web';
+  src: url('titillium_web_regular-webfont.eot');
+  src: url('titillium_web_regular-webfont.eot?#iefix')
+      format('embedded-opentype'),
+    url('titillium_web_regular-webfont.woff2') format('woff2'),
+    url('titillium_web_regular-webfont.woff') format('woff'),
+    url('titillium_web_regular-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
