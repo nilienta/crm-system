@@ -36,5 +36,10 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     '@typescript-eslint/no-unsafe-call': 'off',
     'object-curly-newline': 'off',
+    'operator-linebreak': [
+      'error',
+      'after',
+      { overrides: { '?': 'before', ':': 'before' } },
+    ],
   },
 };

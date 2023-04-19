@@ -1,43 +1,35 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { FC } from 'react';
-
-import { TContact } from '../../../services/types/types';
+import React from 'react';
+import { TCellTable, TContact } from '../../../services/types/types';
 import styles from '../card-contact.module.scss';
 
-type TCellTable = {
-  isEditMode: boolean;
-  rowIDToEdit: any;
-  contact: TContact;
-  option: string;
-  type: string;
-  handleOnChangeField: (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-    rowID: number
-  ) => void;
-};
-
-export const CellTable: FC<TCellTable> = ({
+export const CellTable: React.FC<TCellTable> = ({
   isEditMode,
   rowIDToEdit,
   contact,
   option,
   type,
-  handleOnChangeField,
+  disabled,
 }) => {
+  const textCell: string | number =
+    option === 'year' || option === 'ard'
+      ? new Date(`${contact.year}Z`).toLocaleDateString('en-US')
+      : contact[option as keyof TContact];
+
   return (
-    <td className={styles['card-contact__td']}>
-      {isEditMode && rowIDToEdit === contact.id ? (
-        <input
-          name={option}
-          type={type}
-          defaultValue={contact[option as keyof TContact]}
-          onChange={(e) => handleOnChangeField(e, contact.id)}
-        />
-      ) : (
-        contact[option as keyof TContact]
-      )}
+    <td className={styles.cell__td} valign="top">
+      <div className={styles.cell__wrap}>
+        {isEditMode && rowIDToEdit === contact.id ? (
+          <input
+            name={option}
+            type={type}
+            defaultValue={contact[option as keyof TContact]}
+            disabled={disabled}
+            size={1}
+          />
+        ) : (
+          textCell
+        )}
+      </div>
     </td>
   );
 };

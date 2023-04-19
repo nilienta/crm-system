@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 0.8em;
-  transition: 0.3s;
+  transition: all 0.3s ease-in;
   cursor: text;
 
   font-family: 'Roboto Condensed', Arial, sans-serif;
@@ -13,7 +13,7 @@
 .input__label {
   cursor: text;
   text-align: left;
-  transition: 0.3s;
+  transition: all 0.3s ease-in;
 
   font-weight: 700;
   font-size: 1.5rem;

@@ -1,10 +1,4 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
-/* eslint-disable no-constant-condition */
-/* eslint-disable no-console */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import React, { useCallback, useState, useRef, useEffect } from 'react';
+import React, { useCallback, useRef, useEffect } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
 import { Logo } from '../../components/icons/index';
@@ -12,18 +6,19 @@ import { Button } from '../../components/button/button';
 import { Input } from '../../components/input/input';
 
 import { useForm } from '../../services/hooks/use-form';
+import { signIn } from '../../services/actions/app';
+import {
+  useAppDispatch,
+  useAppSelector,
+  TState,
+} from '../../services/types/types';
+import { users } from '../../services/mocks/mocks';
 
 import styles from './login.module.scss';
 
-const users = [
-  {
-    email: 'Petrov@gmail.com',
-    password: 'password1!',
-  },
-];
-
 export const LoginPage: React.FC = () => {
-  const [isAuth, setIsAuth] = useState(false);
+  const { isAuth } = useAppSelector((state: TState) => state.app);
+  const dispatch = useAppDispatch();
   const { values, handleInputChange, setValues } = useForm({
     email: '',
     password: '',
@@ -31,25 +26,25 @@ export const LoginPage: React.FC = () => {
 
   const form = useRef(null);
   useEffect(() => {
-    const formData = new FormData(form.current);
+    const formData = new FormData(form.current as HTMLFormElement);
     setValues({
       email: String(formData.get('email')),
       password: String(formData.get('password')),
     });
   }, []);
 
-  // TODO вынести функцию checkUser
   const login = useCallback(
     (evt: React.SyntheticEvent) => {
       evt.preventDefault();
       users.forEach((user) => {
         if (user.email === values.email) {
-          setIsAuth(user.password === values.password);
-          console.log(user.password === values.password);
+          if (user.password === values.password) {
+            dispatch(signIn(values));
+          }
         }
       });
     },
-    [values]
+    [values, dispatch]
   );
 
   if (isAuth) {
@@ -66,7 +61,7 @@ export const LoginPage: React.FC = () => {
         <Logo />
       </div>
       <form
-        className={styles.form}
+        className={styles['login-page__form']}
         onSubmit={login}
         encType="multipart/form-data"
         method="post"
@@ -90,9 +85,7 @@ export const LoginPage: React.FC = () => {
           onChange={handleInputChange}
         />
         <div className={styles['login-page__btn']}>
-          <Button color="black" htmlType="submit">
-            Sign In
-          </Button>
+          <Button color="black" htmlType="submit" text="Sign In" />
         </div>
       </form>
     </main>
