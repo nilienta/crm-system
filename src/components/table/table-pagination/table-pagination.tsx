@@ -1,19 +1,10 @@
 import React from 'react';
 import ResponsivePagination from 'react-responsive-pagination';
 
+import { TTablePagination } from '../../../services/types/types';
 import styles from './table-pagination.module.scss';
 
-interface TTablePaginationInterface
-  // TODO разобраться со строчкой extends Omit<
-  extends Omit<React.HTMLProps<HTMLInputElement>, 'size'> {
-  // TODO уточнить object
-  totalCount: number;
-  pageSize: number;
-  onPageChange: (value: React.SetStateAction<number>) => void;
-  currentPage: number;
-}
-
-const TablePagination: React.FC<TTablePaginationInterface> = ({
+const TablePagination: React.FC<TTablePagination> = ({
   totalCount,
   pageSize,
   onPageChange,

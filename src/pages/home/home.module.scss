@@ -1,7 +1,25 @@
-.header {
-  max-width: 2000px;
-  margin: 0px auto;
+.home {
+  width: 100%;
+  max-width: 2500px;
+  height: 100vh;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-start;
+  margin: 0 auto;
+
+  @media (min-width: 2500px) {
+    justify-content: center;
+  }
+
+  &__main {
+    flex-basis: 80%;
+  }
+
+  &__header {
+    margin: 0px auto;
+    padding: 0.8em 3.5em 0.8em 1.4em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+  }
 }

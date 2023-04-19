@@ -1,14 +1,9 @@
 import React from 'react';
 
+import { TSearch } from '../../services/types/types';
 import styles from './search.module.scss';
 
-interface TSearchInterface
-  // TODO разобраться со строчкой extends Omit<
-  extends Omit<React.HTMLProps<HTMLInputElement>, 'size'> {
-  request?: string;
-}
-
-export const Search: React.FC<TSearchInterface> = () => {
+export const Search: React.FC<TSearch> = () => {
   return (
     <form className={styles.search}>
       <input

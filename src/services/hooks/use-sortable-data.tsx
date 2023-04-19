@@ -1,43 +1,25 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable operator-linebreak */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
+
+import { TContacts, TConfig, TContact } from '../types/types';
 
 export const useSortableData = (
-  items: any,
-  setSortList: {
-    (
-      value: React.SetStateAction<
-        {
-          id: number;
-          name: string;
-          number: number;
-          year: string;
-          ard: string;
-          companyId: number;
-          email: string;
-          phoneNumber: number;
-          companyAddress: string;
-        }[]
-      >
-    ): void;
-    (arg0: any[]): void;
-  }
+  items: TContacts,
+  setSortList: React.Dispatch<React.SetStateAction<TContacts>>
 ) => {
-  const [sortConfig, setSortConfig] = React.useState(null);
-  const sortedItems = useMemo(() => {
-    const sortableItems = [...items];
+  const [sortConfig, setSortConfig] = useState<TConfig>(null);
+
+  const getSortedItems = useMemo(() => {
+    const sortableItems: TContact[] = [...items];
     if (sortConfig !== null) {
-      // TODO создавать новый массив
+      const isAscending: boolean = sortConfig.direction === 'ascending';
       sortableItems.sort((a, b) => {
-        if (a[sortConfig.key] < b[sortConfig.key]) {
-          return sortConfig.direction === 'ascending' ? -1 : 1;
+        const currentValue = a[sortConfig.key as keyof TContact];
+        const nextValue = b[sortConfig.key as keyof TContact];
+        if (currentValue < nextValue) {
+          return isAscending ? -1 : 1;
         }
-        if (a[sortConfig.key] > b[sortConfig.key]) {
-          return sortConfig.direction === 'ascending' ? 1 : -1;
+        if (currentValue > nextValue) {
+          return isAscending ? 1 : -1;
         }
         return 0;
       });
@@ -59,5 +41,5 @@ export const useSortableData = (
     setSortConfig({ key, direction });
   };
 
-  return { sortedItems, requestSort, sortConfig };
+  return { getSortedItems, requestSort, sortConfig };
 };

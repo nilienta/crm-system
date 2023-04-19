@@ -1,0 +1,24 @@
+.contact-list {
+  flex-basis: 80%;
+  background: #eeeae7;
+  padding: 23px;
+
+  &__head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__caption {
+    text-align: left;
+    font-family: 'Poppins', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 3rem;
+    color: #000000;
+    opacity: 0.8;
+    margin: 0;
+  }
+}

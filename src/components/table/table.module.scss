@@ -1,6 +1,10 @@
 .table {
   width: 100%;
-  border-spacing: 0px 12px;
+  min-width: 1200px;
+  table-layout: fixed;
+  border-collapse: collapse;
+  margin-top: 0.8em;
+  white-space: nowrap;
 
   font-family: 'Poppins', Arial, sans-serif;
   font-style: normal;
@@ -8,113 +12,4 @@
   font-size: 1.3rem;
   line-height: 1.9rem;
   color: #000000;
-  opacity: 0.8;
-
-  &__caption {
-    text-align: left;
-    font-size: 2rem;
-    line-height: 3rem;
-
-    th {
-      padding: 0.5em;
-      text-align: left;
-      border: 2px green solid;
-      border-bottom: 3px solid #eaeaea;
-      background-color: #ffffff;
-      font-style: inherit;
-      font-weight: inherit;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-  }
-  // TODO Проверить
-  // text-overflow: ellipsis;
-  //  white-space: nowrap;
-  &__th {
-    padding: 0.5em;
-    text-align: left;
-    border: 2px green solid;
-    border-bottom: 3px solid #eaeaea;
-    background-color: #ffffff;
-    font-style: inherit;
-    font-weight: inherit;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-
-    //  & svg {
-    //    display: inline-block;
-    //    vertical-align: middle;
-    //    fill: #fff;
-    //    width: 20px;
-    //    height: 20px;
-    //    margin-right: 0.25rem;
-    //  }
-
-    &--id {
-      width: 8.4%;
-    }
-    &--name {
-      width: 8.4%;
-    }
-    &--number {
-      width: 8.4%;
-    }
-    &--year {
-      width: 8.4%;
-    }
-    &--ard {
-      width: 8.4%;
-    }
-    &--companyId {
-      width: 8.4%;
-    }
-    &--email {
-      width: 20px;
-    }
-    &--phoneNumber {
-      width: 8.4%;
-    }
-    &--companyAddress {
-      width: 8.4%;
-    }
-  }
-
-  &__th button {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.3em;
-    flex-grow: 1;
-    border: 0;
-    font-family: inherit;
-    font-size: inherit;
-    margin: 0;
-    margin-bottom: 1px;
-    background-color: #ffffff;
-  }
-
-  &__th button::after {
-    content: url(../../assets/img/sort.svg);
-    display: inline-block;
-  }
-
-  //   &__th button[data-dir='ascending']::after {
-  //     content: url(../../assets/img/sort.svg);
-  //     display: inline-block;
-  //   }
-  //   &__th button[data-dir='descending']::after {
-  //     content: url(../../assets/img/sortActive.svg);
-  //     display: inline-block;
-  //   }
-
-  //   &__ascending::after {
-  //     content: url(../../assets/img/sortActive.svg);
-  //     display: inline-block;
-  //   }
-
-  //   &__descending::after {
-  //     content: url(../../assets/img/sort.svg);
-  //     display: inline-block;
-  //   }
 }

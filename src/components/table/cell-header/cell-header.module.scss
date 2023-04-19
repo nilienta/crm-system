@@ -1,0 +1,49 @@
+.cell {
+  position: relative;
+  border-bottom: 3px solid #eaeaea;
+  background-color: #ffffff;
+  padding: 0.5em 0.3em;
+
+  text-align: left;
+  font-weight: inherit;
+
+  & span {
+    vertical-align: middle;
+    display: inline-block;
+    max-width: 96%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  & button span {
+    max-width: 80%;
+  }
+
+  &:not(:first-child) span {
+    &::before {
+      content: '_';
+      color: transparent;
+      position: absolute;
+      top: 12px;
+      left: -0.5em;
+      border-left: 2px solid rgb(0, 0, 0);
+    }
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+
+    width: 95%;
+    border: none;
+    background-color: #ffffff;
+
+    line-height: inherit;
+  }
+
+  &__button::after {
+    content: url(../../../assets/img/sort.svg);
+    display: inline-block;
+  }
+}

@@ -1,23 +1,15 @@
 import React from 'react';
 
+import { TUserCard } from '../../services/types/types';
 import styles from './user-card.module.scss';
-// import avatarDefault from '../../assets/img/avatar-default.png';
-import avatarDefault from '../../assets/img/2.jpg';
+import avatarDefault from '../../assets/img/avatar-default.png';
 
-interface TUserCardInterface
-  // TODO разобраться со строчкой extends Omit<
-  extends Omit<React.HTMLProps<HTMLInputElement>, 'size'> {
-  avatar?: string;
-}
-
-export const UserCard: React.FC<TUserCardInterface> = ({ avatar }) => {
+export const UserCard: React.FC<TUserCard> = ({ avatar }) => {
   return (
     <div className={styles['user-card']}>
       <div className={styles['user-card__avatar']}>
         <img
           className={styles['user-card__img']}
-          // TODO разобраться с импортом
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
           src={avatar || avatarDefault}
           alt="User's avatar"
           width="66px"
